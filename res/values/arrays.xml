@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Menu Lateral Desplegable -->
+    <string-array name="nav_options">
+        <item>Mapa</item>
+        <item>Reportes</item>
+        <item>Lugares</item>
+        <item>Cuenta</item>
+        <item>Configuración</item>
+    </string-array>
+    
+</resources>
