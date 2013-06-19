@@ -1047,6 +1047,7 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
+<<<<<<< HEAD
         public static final int common_signin_btn_icon_dark=0x7f020070;
         public static final int common_signin_btn_icon_disabled_dark=0x7f020071;
         public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020072;
@@ -1074,6 +1075,15 @@ containing a value of this type.
         public static final int drawer_shadow=0x7f020088;
         public static final int ic_drawer=0x7f020089;
         public static final int ic_launcher=0x7f02008a;
+=======
+        public static final int drawer_shadow=0x7f020070;
+        public static final int ic_action_overflow=0x7f020071;
+        public static final int ic_app=0x7f020072;
+        public static final int ic_app2=0x7f020073;
+        public static final int ic_app3=0x7f020074;
+        public static final int ic_app4=0x7f020075;
+        public static final int ic_launcher=0x7f020076;
+>>>>>>> Cambios en Set Tittle
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040024;
@@ -1115,8 +1125,12 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040017;
         public static final int abs__title=0x7f04001f;
         public static final int abs__up=0x7f04000b;
+<<<<<<< HEAD
         public static final int action_settings=0x7f040039;
         public static final int content_frame=0x7f040037;
+=======
+        public static final int content_frame=0x7f040033;
+>>>>>>> Cambios en Set Tittle
         public static final int disableHome=0x7f040009;
         public static final int drawer_layout=0x7f040036;
         public static final int edit_query=0x7f04002a;
@@ -1167,9 +1181,11 @@ containing a value of this type.
         public static final int sherlock_spinner_item=0x7f030019;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int activity_itemlist=0x7f0c0000;
+        public static final int main=0x7f0c0001;
     }
     public static final class string {
+        public static final int about=0x7f090013;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f090000;
@@ -1209,6 +1225,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
+<<<<<<< HEAD
         public static final int action_settings=0x7f090023;
         public static final int app_name=0x7f090022;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
@@ -1289,6 +1306,14 @@ containing a value of this type.
         public static final int location_client_ulr_inactive_age_under_13=0x7f09001f;
         public static final int location_client_ulr_inactive_age_unknown=0x7f090020;
         public static final int location_client_ulr_inactive_unknown_restriction=0x7f090021;
+=======
+        public static final int action_settings=0x7f09000e;
+        public static final int app_name=0x7f09000d;
+        public static final int drawer_close=0x7f090011;
+        public static final int drawer_open=0x7f090010;
+        public static final int hello_world=0x7f09000f;
+        public static final int settings=0x7f090012;
+>>>>>>> Cambios en Set Tittle
     }
     public static final class style {
         /** 

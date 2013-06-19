@@ -3,6 +3,10 @@ package com.leyendalabs.guarurapp;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+
+import com.actionbarsherlock.app.SherlockActivity; 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.leyendalabs.guarurapp.listeners.DrawerItemClickListener;
 
 import android.content.res.Configuration;
@@ -22,6 +26,12 @@ public class MainActivity extends SherlockActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
+
+public class MainActivity extends SherlockActivity {
+	
+	private ListView navList;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private DrawerLayout mDrawerLayout;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] Opciones;
@@ -35,7 +45,6 @@ public class MainActivity extends SherlockActivity {
         mTitle = mDrawerTitle = getTitle();
         Opciones = getResources().getStringArray(R.array.nav_options);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
       
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -55,10 +64,14 @@ public class MainActivity extends SherlockActivity {
                 R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
                 R.string.drawer_open,  /* "open drawer" description for accessibility */
                 R.string.drawer_close  /* "close drawer" description for accessibility */
+                R.drawable.ic_app,  /* nav drawer icon to replace 'Up' caret */
+                R.string.drawer_open,  /* "open drawer" description */
+                R.string.drawer_close  /* "close drawer" description */
                 ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            	getSupportActionBar().setTitle(mDrawerTitle);
             }
 
             public void onDrawerOpened(View drawerView) {
@@ -67,6 +80,14 @@ public class MainActivity extends SherlockActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+            	getSupportActionBar().setTitle(mDrawerTitle);
+            }
+        };
+        
+        navList.setAdapter(adapter);
+        navList.setOnItemClickListener(new DrawerItemClickListener(getApplicationContext()));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
       }
 
     
@@ -117,6 +138,15 @@ public class MainActivity extends SherlockActivity {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	
+       MenuInflater inflater = getSupportMenuInflater();
+       inflater.inflate(R.menu.activity_itemlist, menu);
+       return true;
+    }
+
     
 
 }
