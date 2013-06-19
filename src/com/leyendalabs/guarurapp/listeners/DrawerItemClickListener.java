@@ -10,8 +10,6 @@ public class DrawerItemClickListener implements ListView.OnItemClickListener {
 
 	Context cntIn;
 	public DrawerItemClickListener(Context context) {
-		// TODO Auto-generated constructor stub
-		
 		cntIn = context;
 	}
 	
