@@ -1,6 +1,8 @@
 package com.leyendalabs.guarurapp;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.leyendalabs.guarurapp.listeners.DrawerItemClickListener;
 
 import android.content.res.Configuration;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import com.actionbarsherlock.view.MenuInflater; 
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -15,12 +18,13 @@ import android.widget.ListView;
 public class MainActivity extends SherlockActivity {
 	
 	
-	private ListView navList;
-	private ActionBarDrawerToggle mDrawerToggle;
-	private DrawerLayout mDrawerLayout;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
+
     private CharSequence mDrawerTitle;
-   // private ListView mDrawerList;
     private CharSequence mTitle;
+    private String[] Opciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,46 +32,71 @@ public class MainActivity extends SherlockActivity {
 //
         setContentView(R.layout.activity_main);
         
-        this.navList = (ListView)findViewById(R.id.left_drawer);
-        
-        final String[] names = getResources().getStringArray(R.array.nav_options);
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,names);
-        
+        mTitle = mDrawerTitle = getTitle();
+        Opciones = getResources().getStringArray(R.array.nav_options);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        // set a custom shadow that overlays the main content when the drawer opens
+      
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+       
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, Opciones));
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener(this));
+
         
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+    
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 mDrawerLayout,         /* DrawerLayout object */
-                R.drawable.ic_launcher,  /* nav drawer icon to replace 'Up' caret */
-                R.string.drawer_open,  /* "open drawer" description */
-                R.string.drawer_close  /* "close drawer" description */
+                R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
+                R.string.drawer_open,  /* "open drawer" description for accessibility */
+                R.string.drawer_close  /* "close drawer" description for accessibility */
                 ) {
-
-            /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-            	//getActionBar().setTitle(mDrawerTitle);
+                getActionBar().setTitle(mTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
-            /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
-               //getActionBar().setTitle(mDrawerTitle);
+                getActionBar().setTitle(mDrawerTitle);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
-        
-        navList.setAdapter(adapter);
-        navList.setOnItemClickListener(new DrawerItemClickListener(getApplicationContext()));
-        	
-        	
-        	//getActionBar().setDisplayHomeAsUpEnabled(true);
-        	//getActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
       }
 
     
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	
+    	MenuInflater inflater = getSupportMenuInflater(); 
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// TODO Auto-generated method stub
+    	
+        if (item.getItemId() == android.R.id.home) {
+        	 
+            if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                mDrawerLayout.closeDrawer(mDrawerList);
+            } else {
+                mDrawerLayout.openDrawer(mDrawerList);
+            }
+        }
+ 
+        return super.onOptionsItemSelected(item); 
+//    	
+//    	return super.onOptionsItemSelected(item);
+    }
     
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
