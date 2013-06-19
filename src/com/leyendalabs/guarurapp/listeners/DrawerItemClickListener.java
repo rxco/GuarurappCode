@@ -23,7 +23,10 @@ public class DrawerItemClickListener implements ListView.OnItemClickListener {
 
     	//switch para detectar click en algun menú
     	switch(position){
-    		
+    		case 0:    			
+    			Toast.makeText(cntIn, "id: "+ position, Toast.LENGTH_SHORT).show();
+			
+    		break;
     		case 1:    			
     			Toast.makeText(cntIn, "id: "+ position, Toast.LENGTH_SHORT).show();
     			

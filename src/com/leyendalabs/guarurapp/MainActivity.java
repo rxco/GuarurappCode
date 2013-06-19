@@ -1,7 +1,6 @@
 package com.leyendalabs.guarurapp;
 
-
-import com.actionbarsherlock.app.SherlockActivity; 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.leyendalabs.guarurapp.listeners.DrawerItemClickListener;
 
 import android.content.res.Configuration;
@@ -13,20 +12,20 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-//@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MainActivity extends SherlockActivity {
+	
 	
 	private ListView navList;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private DrawerLayout mDrawerLayout;
     private CharSequence mDrawerTitle;
-    private ListView mDrawerList;
+   // private ListView mDrawerList;
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//
         setContentView(R.layout.activity_main);
         
         this.navList = (ListView)findViewById(R.id.left_drawer);
@@ -36,7 +35,7 @@ public class MainActivity extends SherlockActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,names);
         
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        //mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -68,7 +67,7 @@ public class MainActivity extends SherlockActivity {
         	//getActionBar().setHomeButtonEnabled(true);
       }
 
-
+    
     
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
