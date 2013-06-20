@@ -1,6 +1,5 @@
 package com.leyendalabs.guarurapp;
-
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -19,7 +18,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends SherlockActivity {
+public class MainActivity extends SherlockFragmentActivity {
 	
 	
     private DrawerLayout mDrawerLayout;
@@ -45,13 +44,19 @@ public class MainActivity extends SherlockActivity {
         mTitle = mDrawerTitle = getTitle();
         Opciones = getResources().getStringArray(R.array.nav_options);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+<<<<<<< HEAD
+=======
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        
+        DrawerItemClickListener listener = new DrawerItemClickListener(this); 
+>>>>>>> Agregación de Mapas
 
       
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
        
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, Opciones));
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener(this));
+        mDrawerList.setOnItemClickListener(listener);
 
         
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -80,6 +85,7 @@ public class MainActivity extends SherlockActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+<<<<<<< HEAD
             	getSupportActionBar().setTitle(mDrawerTitle);
             }
         };
@@ -88,6 +94,14 @@ public class MainActivity extends SherlockActivity {
         navList.setOnItemClickListener(new DrawerItemClickListener(getApplicationContext()));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+=======
+        
+        
+//        if (savedInstanceState == null) {
+//            listener.selectItem(0);
+//        }
+
+>>>>>>> Agregación de Mapas
       }
 
     

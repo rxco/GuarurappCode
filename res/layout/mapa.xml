@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <fragment 
+        android:id="@+id/mapa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <Button
+        android:id="@+id/auxilio"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_weight="1"
+        android:text="Auxilio" />
+
+</LinearLayout>
